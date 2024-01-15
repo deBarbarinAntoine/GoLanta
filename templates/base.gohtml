@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="{{template "staticPath" .}}logo-koh-lanta-1.png">
-    <link rel="stylesheet" href="{{template "staticPath" .}}css/style.css">
+    <link rel="stylesheet" href="{{template "staticPath" .}}css/base.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     {{template  "css" .}}
     {{template "title" .}}
 </head>
@@ -21,10 +22,10 @@
                     <div class="log">
                         {{template "header-btn" .}}
                     </div>
-                    <form action="/search" method="get">
+                    <form class="search-form" action="/search" method="get">
                         <div class="try">
                             <input id="bar" type="text" name="q" placeholder=" Type...">
-                            <button type="submit"><box-icon id="icon" name='search-alt-2'></box-icon></button>
+                            <button type="submit"><span id="icon" class="material-symbols-outlined">search</span></button>
                         </div>
                     </form>
                 </div>
@@ -41,11 +42,9 @@
         <div class="footer-content">
             <div class="name">
                 <ul>
-                    <li>Petit-Ghanem Alexandre</li>
-                    <li>Harel Marin</li>
-                    <li>De Barbarin Antoine</li>
-                    <li>Nguyen Yulan</li>
-                    <li>Mousnier Thierry</li>
+                    <li>Antoine de Barbarin</li>
+                    <li><a href="https://www.linkedin.com/in/antoine-de-barbarin-aa765128b/"><img src="{{template "staticPath" .}}img/linkedin.png" alt="LinkedIn logo" />Linkedin</a></li>
+                    <li><a href="https://github.com/deBarbarinAntoine"><img src="{{template "staticPath" .}}img/github.png" alt="Github logo">Github</a></li>
                 </ul>
             </div>
             <div class="footer-logo">
@@ -54,12 +53,9 @@
                 </a>
             </div>
             <div class="footer-mention">
-                <div class="footer-mention-content">
-                    <a href="/about#about"><p>About</p></a>
-                    <a href="/about"><p>Terms and conditions</p></a>
-                </div>
                 <div class="footer-mention-copy">
-                    <p>Copyright ©️ 2024, Sport Pulse. <br> All Right Reserved</p>
+                    <p>Copyright ©️ 2024, Go-Lanta.</p>
+                    <p>All Right Reserved</p>
                 </div>
             </div>
         </div>

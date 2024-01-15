@@ -1,5 +1,5 @@
 {{define "staticPath"}}{{.Base.StaticPath}}{{end}}
-{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/addarticle.css">{{end}}
+{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/forms.css">{{end}}
 {{define "title"}}<title>{{.Base.Title}}</title>{{end}}
 
 {{define "header-btn"}}
@@ -7,19 +7,19 @@
 {{end}}
 
 {{define "body"}}
-    <div class="main-article">
+    <div class="main-ctn">
         <h2 id="article-title">Update a character: </h2>
-        <div class="article-content">
-            <form action="/update/treatment?char={{.Char.Id}}" method="post">
+        <div class="form-ctn">
+            <form class="formChar" action="/update/treatment?char={{.Char.Id}}" method="post">
                 <div style="display: none">
                     <input type="text" id="id" name="id" value="{{.Char.Id}}" required readonly />
                 </div>
-                <div class="article-input">
-                    <label id="lab" for="name">Name</label>
+                <div class="form-input">
+                    <label id="label" for="name">Name</label>
                     <input type="text" name="name" value="{{.Char.Name}}" required autofocus>
                 </div>
-                <div class="article-input">
-                    <label id="lab" for="nationality">Nationality</label>
+                <div class="form-input">
+                    <label id="label" for="nationality">Nationality</label>
                     <input type="text" name="nationality" value="{{.Char.Nationality}}" required autofocus>
                 </div>
                 <label for="strength">Strength</label>
@@ -62,10 +62,10 @@
                     <input type="range" id="fame" name="fame" min="0" max="10" value="{{.Char.Fame}}" oninput="fameValue.innerText = this.value">
                     <p id="fameValue">{{.Char.Fame}}</p>
                 </div>
-                <div class="article-button">
+                <div class="form-btn">
                     <button type="submit">Submit</button>
                 </div>
-                <div class="article-button">
+                <div class="form-btn">
                     <a href="/home">Cancel</a>
                 </div>
             </form>

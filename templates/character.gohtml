@@ -10,21 +10,19 @@
 {{end}}
 
 {{define "body"}}
-    <div class="all-article">
-        <div class="top">
-            <div class="top-left">
-                <div class="title">
-                    <h1 id="title-article">{{.Char.Name}}</h1>
-                    <p><span>Nationality: </span><span>{{.Char.Nationality}}</span></p>
-                    <p><span>Strength: </span><span>{{.Char.Strength}}</span></p>
-                    <p><span>Agility: </span><span>{{.Char.Agility}}</span></p>
-                    <p><span>Stamina: </span><span>{{.Char.Stamina}}</span></p>
-                    <p><span>Vitality: </span><span>{{.Char.Vitality}}</span></p>
-                    <p><span>Initiative: </span><span>{{.Char.Initiative}}</span></p>
-                    <p><span>Intelligence: </span><span>{{.Char.Intelligence}}</span></p>
-                    <p><span>Knowledge: </span><span>{{.Char.Knowledge}}</span></p>
-                    <p><span>Fame: </span><span>{{.Char.Fame}}</span></p>
-                </div>
+    <div class="main-ctn">
+        <div class="character-card">
+            <div class="title">
+                <h1 id="name-character">{{.Char.Name}}</h1>
+                <p><span>Nationality: </span><span>{{.Char.Nationality}}</span></p>
+                <p><span>Strength: </span><span>{{.Char.Strength}}</span></p>
+                <p><span>Agility: </span><span>{{.Char.Agility}}</span></p>
+                <p><span>Stamina: </span><span>{{.Char.Stamina}}</span></p>
+                <p><span>Vitality: </span><span>{{.Char.Vitality}}</span></p>
+                <p><span>Initiative: </span><span>{{.Char.Initiative}}</span></p>
+                <p><span>Intelligence: </span><span>{{.Char.Intelligence}}</span></p>
+                <p><span>Knowledge: </span><span>{{.Char.Knowledge}}</span></p>
+                <p><span>Fame: </span><span>{{.Char.Fame}}</span></p>
             </div>
         </div>
     </div>

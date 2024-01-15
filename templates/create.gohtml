@@ -1,5 +1,5 @@
 {{define "staticPath"}}{{.Base.StaticPath}}{{end}}
-{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/addarticle.css">{{end}}
+{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/forms.css">{{end}}
 {{define "title"}}<title>{{.Base.Title}}</title>{{end}}
 
 {{define "header-btn"}}
@@ -7,16 +7,16 @@
 {{end}}
 
 {{define "body"}}
-    <div class="main-article">
-        <h2 id="article-title">Create a new character: </h2>
-        <div class="article-content">
+    <div class="main-ctn">
+        <h2 id="form-title">Create a new character: </h2>
+        <div class="form-ctn">
             <form action="/create/treatment" method="post" class="formChar">
-                <div class="article-input">
-                    <label id="lab" for="name">Name</label>
+                <div class="form-input">
+                    <label id="label" for="name">Name</label>
                     <input type="text" name="name" required autofocus>
                 </div>
-                <div class="article-input">
-                    <label id="lab" for="nationality">Nationality</label>
+                <div class="form-input">
+                    <label id="label" for="nationality">Nationality</label>
                     <input type="text" name="nationality" required autofocus>
                 </div>
                 <label for="strength">Strength</label>
@@ -59,10 +59,10 @@
                     <input type="range" id="fame" name="fame" min="0" max="10" value="5" oninput="fameValue.innerText = this.value">
                     <p id="fameValue">5</p>
                 </div>
-                <div class="article-button">
+                <div class="form-btn">
                     <button type="submit">Submit</button>
                 </div>
-                <div class="article-button">
+                <div class="form-btn">
                     <a href="/home">Cancel</a>
                 </div>
             </form>

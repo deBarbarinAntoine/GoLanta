@@ -7,22 +7,15 @@
 {{end}}
 
 {{define "body"}}
-    <div class="bodysearch">
-        <div class="admin-actions">
-            <div class="Addandmodify">
-                <a href="/create"> <button class="adminbutton"> Create a character </button> </a>
-            </div>
-        </div>
+    <div class="main-ctn">
         {{range .Chars}}
-            <section class="rectanglecolumn">
+            <section class="list-char-card">
                 <a class="asearch" href="/character?char={{.Id}}">
-                    <div class="infosearch admin-info">
-                        <div class="h2search">{{.Name}}</div> <br>
-{{/*                        <div class="h3search">{{.Author}} </div>*/}}
-{{/*                        <div class="h3search">{{.Date}}</div>*/}}
-                        <div class="button-detail-article">
-                            <a href="/update?char={{.Id}}"> <button class="modifyarticlebutton"> Update character </button> </a>
-                            <a href="/remove?char={{.Id}}"> <button class="deletearticlebutton"> Remove character </button> </a>
+                    <div class="list-char-card-ctn">
+                        <div class="list-char-name">{{.Name}}</div>
+                        <div class="btns-list-char-card">
+                            <a class="update-char-btn" href="/update?char={{.Id}}">Update character</a>
+                            <a class="remove-char-btn" href="/remove?char={{.Id}}">Remove character</a>
                         </div>
                     </div>
                 </a>
