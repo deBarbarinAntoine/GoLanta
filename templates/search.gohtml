@@ -1,0 +1,36 @@
+{{define "staticPath"}}{{.Base.StaticPath}}{{end}}
+{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/content.css">{{end}}
+{{define "title"}}<title>{{.Base.Title}}</title>{{end}}
+
+{{define "header-btn"}}
+        <a href="/home"><button>Dashboard</button></a>
+{{end}}
+
+{{define "body"}}
+    <div class="bodysearch">
+        <section class="rectanglesearch">
+            <form action="/search" method="get">
+                <div class="trysearch">
+                    <input class="searchbar" name="q" type="text" placeholder=" Type... " value="{{.Search}}">
+                    <button type="submit"><box-icon id="iconsearch" name='search-alt-2'></box-icon></button>
+                </div>
+            </form>
+        </section>
+        <h1 class="h1search">{{.Message}}</h1>
+        {{range .Chars}}
+            <section class="rectanglecolumn">
+                <a class="asearch" href="/character?char={{.Id}}">
+                    <div class="infosearch admin-info">
+                        <div class="h2search">{{.Name}}</div> <br>
+{{/*                        <div class="h3search">{{.Author}} </div>*/}}
+{{/*                        <div class="h3search">{{.Date}}</div>*/}}
+                        <div class="button-detail-article">
+                            <a href="/update?char={{.Id}}"> <button class="modifyarticlebutton"> Update character </button> </a>
+                            <a href="/remove?char={{.Id}}"> <button class="deletearticlebutton"> Remove character </button> </a>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        {{end}}
+    </div>
+{{end}}

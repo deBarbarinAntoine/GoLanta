@@ -1,0 +1,70 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{{template "staticPath" .}}logo-koh-lanta-1.png">
+    <link rel="stylesheet" href="{{template "staticPath" .}}css/style.css">
+    {{template  "css" .}}
+    {{template "title" .}}
+</head>
+<body>
+    <header>
+        <div class="fixed">
+            <div class="header">
+                <div class="header-option">
+                    <div class="nav">
+                        <a href="/home">Home</a>
+                        <a href="/create">Create character</a>
+                    </div>
+                    <div class="log">
+                        {{template "header-btn" .}}
+                    </div>
+                    <form action="/search" method="get">
+                        <div class="try">
+                            <input id="bar" type="text" name="q" placeholder=" Type...">
+                            <button type="submit"><box-icon id="icon" name='search-alt-2'></box-icon></button>
+                        </div>
+                    </form>
+                </div>
+                <a href="/index"><img id="logo" src="{{template "staticPath" .}}img/logo-koh-lanta-1.png" alt="Koh Lanta logo"></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="ctn" style="background-image: url('{{template "staticPath" .}}img/GoLanta_wallpaper.jpg')">
+        {{template "body" .}}
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="name">
+                <ul>
+                    <li>Petit-Ghanem Alexandre</li>
+                    <li>Harel Marin</li>
+                    <li>De Barbarin Antoine</li>
+                    <li>Nguyen Yulan</li>
+                    <li>Mousnier Thierry</li>
+                </ul>
+            </div>
+            <div class="footer-logo">
+                <a href="/index">
+                    <img src="{{template "staticPath" .}}img/logo-koh-lanta-1.png" alt="Koh Lanta logo">
+                </a>
+            </div>
+            <div class="footer-mention">
+                <div class="footer-mention-content">
+                    <a href="/about#about"><p>About</p></a>
+                    <a href="/about"><p>Terms and conditions</p></a>
+                </div>
+                <div class="footer-mention-copy">
+                    <p>Copyright ©️ 2024, Sport Pulse. <br> All Right Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</html>
+{{end}}

@@ -1,0 +1,18 @@
+{{define "staticPath"}}{{.Base.StaticPath}}{{end}}
+{{define "css"}}
+<link rel="stylesheet" href="{{.Base.StaticPath}}css/content.css">{{end}}
+{{define "title"}}<title>{{.Base.Title}}</title>{{end}}
+
+{{define "header-btn"}}
+        <a href="/home">
+            <button>Dashboard</button>
+        </a>
+{{end}}
+
+{{define "body"}}
+    <div class="error-container">
+        <div class="cont-img">
+            <img src="{{.Base.StaticPath}}img/img_error_404.jpg" alt="image d'erreur">
+        </div>
+    </div>
+{{end}}

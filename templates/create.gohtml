@@ -1,0 +1,71 @@
+{{define "staticPath"}}{{.Base.StaticPath}}{{end}}
+{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/addarticle.css">{{end}}
+{{define "title"}}<title>{{.Base.Title}}</title>{{end}}
+
+{{define "header-btn"}}
+        <a href="/home"><button>Dashboard</button></a>
+{{end}}
+
+{{define "body"}}
+    <div class="main-article">
+        <h2 id="article-title">Create a new character: </h2>
+        <div class="article-content">
+            <form action="/create/treatment" method="post" class="formChar">
+                <div class="article-input">
+                    <label id="lab" for="name">Name</label>
+                    <input type="text" name="name" required autofocus>
+                </div>
+                <div class="article-input">
+                    <label id="lab" for="nationality">Nationality</label>
+                    <input type="text" name="nationality" required autofocus>
+                </div>
+                <label for="strength">Strength</label>
+                <div class="slider">
+                    <input type="range" id="strength" name="strength" min="0" max="10" value="5" oninput="strengthValue.innerText = this.value">
+                    <p id="strengthValue">5</p>
+                </div>
+                <label for="agility">Agility</label>
+                <div class="slider">
+                    <input type="range" id="agility" name="agility" min="0" max="10" value="5" oninput="agilityValue.innerText = this.value">
+                    <p id="agilityValue">5</p>
+                </div>
+                <label for="stamina">Stamina</label>
+                <div class="slider">
+                    <input type="range" id="stamina" name="stamina" min="0" max="10" value="5" oninput="staminaValue.innerText = this.value">
+                    <p id="staminaValue">5</p>
+                </div>
+                <label for="vitality">Vitality</label>
+                <div class="slider">
+                    <input type="range" id="vitality" name="vitality" min="0" max="10" value="5" oninput="vitalityValue.innerText = this.value">
+                    <p id="vitalityValue">5</p>
+                </div>
+                <label for="initiative">Initiative</label>
+                <div class="slider">
+                    <input type="range" id="initiative" name="initiative" min="0" max="10" value="5" oninput="initiativeValue.innerText = this.value">
+                    <p id="initiativeValue">5</p>
+                </div>
+                <label for="intelligence">Intelligence</label>
+                <div class="slider">
+                    <input type="range" id="intelligence" name="intelligence" min="0" max="10" value="5" oninput="intelligenceValue.innerText = this.value">
+                    <p id="intelligenceValue">5</p>
+                </div>
+                <label for="knowledge">Knowledge</label>
+                <div class="slider">
+                    <input type="range" id="knowledge" name="knowledge" min="0" max="10" value="5" oninput="knowledgeValue.innerText = this.value">
+                    <p id="knowledgeValue">5</p>
+                </div>
+                <label for="fame">Fame</label>
+                <div class="slider">
+                    <input type="range" id="fame" name="fame" min="0" max="10" value="5" oninput="fameValue.innerText = this.value">
+                    <p id="fameValue">5</p>
+                </div>
+                <div class="article-button">
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="article-button">
+                    <a href="/home">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{{end}}

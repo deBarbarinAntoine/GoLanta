@@ -1,0 +1,74 @@
+{{define "staticPath"}}{{.Base.StaticPath}}{{end}}
+{{define "css"}}<link rel="stylesheet" href="{{.Base.StaticPath}}css/addarticle.css">{{end}}
+{{define "title"}}<title>{{.Base.Title}}</title>{{end}}
+
+{{define "header-btn"}}
+        <a href="/home"><button>Dashboard</button></a>
+{{end}}
+
+{{define "body"}}
+    <div class="main-article">
+        <h2 id="article-title">Update a character: </h2>
+        <div class="article-content">
+            <form action="/update/treatment?char={{.Char.Id}}" method="post">
+                <div style="display: none">
+                    <input type="text" id="id" name="id" value="{{.Char.Id}}" required readonly />
+                </div>
+                <div class="article-input">
+                    <label id="lab" for="name">Name</label>
+                    <input type="text" name="name" value="{{.Char.Name}}" required autofocus>
+                </div>
+                <div class="article-input">
+                    <label id="lab" for="nationality">Nationality</label>
+                    <input type="text" name="nationality" value="{{.Char.Nationality}}" required autofocus>
+                </div>
+                <label for="strength">Strength</label>
+                <div class="slider">
+                    <input type="range" id="strength" name="strength" min="0" max="10" value="{{.Char.Strength}}" oninput="strengthValue.innerText = this.value">
+                    <p id="strengthValue">{{.Char.Strength}}</p>
+                </div>
+                <label for="agility">Agility</label>
+                <div class="slider">
+                    <input type="range" id="agility" name="agility" min="0" max="10" value="{{.Char.Agility}}" oninput="agilityValue.innerText = this.value">
+                    <p id="agilityValue">{{.Char.Agility}}</p>
+                </div>
+                <label for="stamina">Stamina</label>
+                <div class="slider">
+                    <input type="range" id="stamina" name="stamina" min="0" max="10" value="{{.Char.Stamina}}" oninput="staminaValue.innerText = this.value">
+                    <p id="staminaValue">{{.Char.Stamina}}</p>
+                </div>
+                <label for="vitality">Vitality</label>
+                <div class="slider">
+                    <input type="range" id="vitality" name="vitality" min="0" max="10" value="{{.Char.Vitality}}" oninput="vitalityValue.innerText = this.value">
+                    <p id="vitalityValue">{{.Char.Vitality}}</p>
+                </div>
+                <label for="initiative">Initiative</label>
+                <div class="slider">
+                    <input type="range" id="initiative" name="initiative" min="0" max="10" value="{{.Char.Initiative}}" oninput="initiativeValue.innerText = this.value">
+                    <p id="initiativeValue">{{.Char.Initiative}}</p>
+                </div>
+                <label for="intelligence">Intelligence</label>
+                <div class="slider">
+                    <input type="range" id="intelligence" name="intelligence" min="0" max="10" value="{{.Char.Intelligence}}" oninput="intelligenceValue.innerText = this.value">
+                    <p id="intelligenceValue">{{.Char.Intelligence}}</p>
+                </div>
+                <label for="knowledge">Knowledge</label>
+                <div class="slider">
+                    <input type="range" id="knowledge" name="knowledge" min="0" max="10" value="{{.Char.Knowledge}}" oninput="knowledgeValue.innerText = this.value">
+                    <p id="knowledgeValue">{{.Char.Knowledge}}</p>
+                </div>
+                <label for="fame">Fame</label>
+                <div class="slider">
+                    <input type="range" id="fame" name="fame" min="0" max="10" value="{{.Char.Fame}}" oninput="fameValue.innerText = this.value">
+                    <p id="fameValue">{{.Char.Fame}}</p>
+                </div>
+                <div class="article-button">
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="article-button">
+                    <a href="/home">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{{end}}
