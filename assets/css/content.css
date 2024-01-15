@@ -84,3 +84,30 @@ body {
     color: #CF0A0A;
     cursor: pointer;
 }
+
+.character-card {
+
+}
+
+.character-card-ctn {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: fit-content;
+    gap: 2rem;
+    color: #583d28;
+    font-size: 1.7rem;
+}
+
+#name-character {
+    color: #583d28;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+}
+
+.character-card-ctn p {
+    display: flex;
+    width: max-content;
+    justify-content: space-evenly;
+}
