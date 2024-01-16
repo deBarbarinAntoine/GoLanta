@@ -10,6 +10,7 @@ type BaseData struct {
 type Character struct {
 	Id           int    `json:"id"`
 	Name         string `json:"name"`
+	Avatar       string `json:"avatar"`
 	Nationality  string `json:"nationality"`
 	Strength     int    `json:"strength"`
 	Agility      int    `json:"agility"`

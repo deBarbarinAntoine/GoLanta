@@ -4,9 +4,10 @@
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    width: 60%;
+    width: 75%;
     height: fit-content;
-    min-height: 75vh;
+    min-height: 60vh;
+    margin-top: 5rem;
     padding: 3rem;
     border-radius: 1.5rem;
     background-color: #191919;
@@ -86,25 +87,105 @@
 
 .character-card-ctn {
     display: flex;
-    flex-direction: column;
     width: 95%;
     min-width: fit-content;
-    gap: 2rem;
+    gap: 7rem;
     color: #e8d9a0;
     font-size: 1.7rem;
 }
 
-#name-character {
-    color: #e8d9a0;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 3.5rem;
+.character-card-compendium {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: calc(calc(calc(3rem + 2vw) * 4) + 3rem);
+    height: calc(calc(calc(3rem + 2vw) * 5) + 3rem);
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #CF0A0A;
+    border-radius: 1.5rem;
 }
 
-.character-card-ctn p {
+.home-chars {
     display: flex;
-    width: max-content;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.character-card-compendium-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-evenly;
+    width: calc(calc(calc(3rem + 2vw) * 4) + 3rem);
+    height: calc(calc(calc(3rem + 2vw) * 5) + 8rem);
+    gap: 2rem;
+    padding: 1rem;
+    border: 2px solid #CF0A0A;
+    border-radius: 1.5rem;
+}
+
+.character-card-compendium-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100% - 5rem);
+    gap: 1rem;
+}
+
+.character-card-avatar {
+    width: 100%;
+    height: 60%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.card-separator {
+    width: 95%;
+    height: 3px;
+    background-color: #CF0A0A;
+    border-radius: 1px;
+}
+
+.name-character {
+    color: #e8d9a0;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 4rem;
+}
+
+.nationality-character {
+    color: #e8d9a0;
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic;
+    line-height: 3rem;
+}
+
+.character-card-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    height: 3.5rem;
+}
+
+.character-card-btn a span {
+    font-size: 3rem;
+    line-height: 3rem;
+    color: #e8d9a0;
+    transition: color 1.2s ease;
+}
+
+.character-card-btn a:hover span {
+    color: #CF0A0A;
 }
 
 .stats {

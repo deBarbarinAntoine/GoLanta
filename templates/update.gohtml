@@ -14,6 +14,16 @@
                 <div style="display: none">
                     <input type="text" id="id" name="id" value="{{.Char.Id}}" required readonly />
                 </div>
+                <div class="avatars-list">
+                    {{$path := .Base.StaticPath}}
+                    {{$avatar := .Char.Avatar}}
+                    {{range .Avatars}}
+                        <div class="avatar {{if eq $avatar .}}selected{{end}}" id="{{.}}">
+                            <input type="radio" name="avatar" value="{{.}}" {{if eq $avatar .}}checked{{end}}>
+                            <div class="avatar-img" style="background-image: url('{{$path}}{{.}}')"></div>
+                        </div>
+                    {{end}}
+                </div>
                 <div class="form-input">
                     <label id="label" for="name">Name</label>
                     <input type="text" name="name" value="{{.Char.Name}}" required autofocus>

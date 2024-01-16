@@ -8,6 +8,8 @@ import (
 	"strconv"
 )
 
+var avatars = []string{"img/characters/fem1.png", "img/characters/fem2.png", "img/characters/fem3.png", "img/characters/fem4.png", "img/characters/fem5.png", "img/characters/fem6.png", "img/characters/fem7.png", "img/characters/masc1.png", "img/characters/masc2.png", "img/characters/masc3.png", "img/characters/masc4.png", "img/characters/masc5.png", "img/characters/masc6.png", "img/characters/masc7.png"}
+
 // rootHandler redirects to index handler.
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
@@ -140,7 +142,7 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 		Message template.HTML
 	}{
 		Base: BaseData{
-			Title:      "Research",
+			Title:      "Research - GoLanta",
 			StaticPath: "static/",
 		},
 		Chars:   chars,
@@ -166,12 +168,14 @@ func createHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data := struct {
-		Base BaseData
+		Base    BaseData
+		Avatars []string
 	}{
 		Base: BaseData{
-			Title:      "Research - GoLanta",
+			Title:      "Create character - GoLanta",
 			StaticPath: "static/",
 		},
+		Avatars: avatars,
 	}
 	//fmt.Printf("log: data: %#v\n", data) // testing
 	err := tmpl["create"].ExecuteTemplate(w, "base", data)
@@ -202,6 +206,7 @@ func createTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	var newChar = Character{
 		Id:           getIdNewChar(),
 		Name:         r.FormValue("name"),
+		Avatar:       r.FormValue("avatar"),
 		Nationality:  r.FormValue("nationality"),
 		Strength:     strength,
 		Agility:      agility,
@@ -243,14 +248,16 @@ func updateHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data := struct {
-		Base BaseData
-		Char Character
+		Base    BaseData
+		Char    Character
+		Avatars []string
 	}{
 		Base: BaseData{
 			Title:      "Update Character - GoLanta",
 			StaticPath: "static/",
 		},
-		Char: char,
+		Char:    char,
+		Avatars: avatars,
 	}
 	//fmt.Printf("log: data: %#v\n", data) // testing
 	err = tmpl["update"].ExecuteTemplate(w, "base", data)
@@ -286,6 +293,7 @@ func updateTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	var updatedChar = Character{
 		Id:           id,
 		Name:         r.FormValue("name"),
+		Avatar:       r.FormValue("avatar"),
 		Nationality:  r.FormValue("nationality"),
 		Strength:     strength,
 		Agility:      agility,

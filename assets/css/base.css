@@ -106,7 +106,7 @@ body {
     text-decoration: none;
     user-select: none;
     font-weight: 800;
-    transition: color 1.2s ease;
+    transition: color, transform 1.2s ease;
 }
 
 .nav a:hover {
@@ -175,7 +175,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     text-align: center;
-    transition: border 2s ease, color 2s ease;
+    transition: all 2s ease;
 }
 
 #icon {
@@ -215,6 +215,8 @@ body {
 
 @keyframes borderAnimation {
     0% {
+        height: 1px;
+        background-color: #CF0A0A;
         margin-left: 0;
         width: 0;
     }
@@ -222,7 +224,13 @@ body {
         margin-left: 0;
         width: 30%;
     }
+    50% {
+        height: 3px;
+        background-color: #DC5F00;
+    }
     100% {
+        height: 1px;
+        background-color: #CF0A0A;
         margin-left: 100%;
         width: 30%;
     }
@@ -236,7 +244,7 @@ body {
     width: 0;
     height: 2px;
     background-color: #DC5F00;
-    animation: borderAnimation 3s linear infinite;
+    animation: borderAnimation 3s cubic-bezier(.29, 1.01, 1, -0.68) infinite;
 }
 
 /* css du footer */

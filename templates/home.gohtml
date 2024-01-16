@@ -8,18 +8,22 @@
 
 {{define "body"}}
     <div class="main-ctn">
-        {{range .Chars}}
-            <section class="list-char-card">
-                <a class="asearch" href="/character?char={{.Id}}">
-                    <div class="list-char-card-ctn">
-                        <div class="list-char-name">{{.Name}}</div>
-                        <div class="btns-list-char-card">
-                            <a class="update-char-btn" href="/update?char={{.Id}}">Update character</a>
-                            <a class="remove-char-btn" href="/remove?char={{.Id}}">Remove character</a>
-                        </div>
+        <div class="home-chars">
+            {{$path := .Base.StaticPath}}
+            {{range .Chars}}
+                <div class="character-card-compendium-list">
+                    <a href="/character?char={{.Id}}">
+                        <div class="character-card-avatar" style="background-image: url('{{$path}}{{.Avatar}}')"></div>
+                        <div class="card-separator"></div>
+                        <div class="name-character">{{.Name}}</div>
+                        <div class="nationality-character">{{.Nationality}}</div>
+                    </a>
+                    <div class="character-card-btn">
+                        <a href="/update?char={{.Id}}"><span class="material-symbols-outlined">edit</span></a>
+                        <a href="/remove?char={{.Id}}"><span class="material-symbols-outlined">delete</span></a>
                     </div>
-                </a>
-            </section>
-        {{end}}
+                </div>
+            {{end}}
+        </div>
     </div>
 {{end}}

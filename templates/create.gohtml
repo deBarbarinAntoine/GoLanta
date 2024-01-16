@@ -11,6 +11,15 @@
         <h2 id="form-title">Create a new character: </h2>
         <div class="form-ctn">
             <form action="/create/treatment" method="post" class="formChar">
+                <div class="avatars-list">
+                    {{$path := .Base.StaticPath}}
+                    {{range .Avatars}}
+                        <div class="avatar" id="{{.}}">
+                            <input type="radio" name="avatar" value="{{.}}" required>
+                            <div class="avatar-img" style="background-image: url('{{$path}}{{.}}')"></div>
+                        </div>
+                    {{end}}
+                </div>
                 <div class="form-input">
                     <label id="label" for="name">Name</label>
                     <input type="text" name="name" required autofocus>

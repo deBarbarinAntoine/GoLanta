@@ -11,8 +11,12 @@
     <div class="main-ctn">
         <div class="character-card">
             <div class="character-card-ctn">
-                <h1 id="name-character">{{.Char.Name}}</h1>
-                <p><span>Nationality: </span><span>{{.Char.Nationality}}</span></p>
+                <div class="character-card-compendium">
+                    <div class="character-card-avatar" style="background-image: url('{{.Base.StaticPath}}{{.Char.Avatar}}')"></div>
+                    <div class="card-separator"></div>
+                    <div class="name-character">{{.Char.Name}}</div>
+                    <div class="nationality-character">{{.Char.Nationality}}</div>
+                </div>
                 <div class="stats">
                     <div class="stat-labels">
                         <label for="strength">Strength:</label>
