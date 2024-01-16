@@ -1,9 +1,3 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-}
-
 .main-ctn {
     display: flex;
     flex-direction: column;
@@ -15,10 +9,11 @@ body {
     min-height: 75vh;
     padding: 3rem;
     border-radius: 1.5rem;
-    background-color: #e8d9a0;
-    box-shadow: 0 0 .5rem .2rem #CF0A0A;
-    color: #583d28;
+    background-color: #191919;
+    border: 3px solid #CF0A0A;
+    color: #e8d9a0;
     font-size: 1.7rem;
+    filter: none;
 }
 
 .list-char-card {
@@ -86,21 +81,21 @@ body {
 }
 
 .character-card {
-
+    width: 100%;
 }
 
 .character-card-ctn {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 95%;
     min-width: fit-content;
     gap: 2rem;
-    color: #583d28;
+    color: #e8d9a0;
     font-size: 1.7rem;
 }
 
 #name-character {
-    color: #583d28;
+    color: #e8d9a0;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 3.5rem;
@@ -110,4 +105,59 @@ body {
     display: flex;
     width: max-content;
     justify-content: space-evenly;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.stat-labels {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    gap: .5rem;
+}
+
+.stat-labels label {
+    height: 2rem;
+    gap: .5rem;
+}
+
+.stat-bars {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: .5rem;
+}
+
+.stat-bars .bar {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    padding: .3rem;
+    background-color: #e8d9a0;
+    border-radius: 1.5rem;
+}
+
+.stat-bars .bar .progress  {
+    background-color: #DC5F00;
+    height: 1.4rem;
+    margin: 5px 0;
+    border-radius: 1.5rem;
+}
+
+.stat-values {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    gap: .5rem;
+}
+
+.stat-values span {
+    height: 2rem;
 }
