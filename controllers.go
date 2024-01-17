@@ -56,15 +56,36 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	data := struct {
 		Base  BaseData
-		Chars []Character
+		Chars []struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}
 	}{
 		Base: BaseData{
 			Title:      "Home - GoLanta",
 			StaticPath: "static/",
 		},
-		Chars: chars,
 	}
-	//fmt.Printf("log: data: %#v\n", data) // testing
+
+	data.Chars = make([]struct {
+		Char      Character
+		Stat      StatsHTML
+		TotalStat int
+	}, len(chars))
+
+	for i, char := range chars {
+		data.Chars[i] = struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}{
+			Char:      char,
+			Stat:      statToHTML(chars)[i],
+			TotalStat: getTotalStat(chars)[i],
+		}
+	}
+	//log.Printf("log: data: %#v\n", data) // testing
 	err = tmpl["home"].ExecuteTemplate(w, "base", data)
 	if err != nil {
 		log.Fatal(err)
@@ -362,7 +383,7 @@ func removeTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	id, err := strconv.Atoi(r.URL.Query().Get("char"))
 	if err != nil {
-		log.Println("log: characterHandler() strconv.Atoi error!\n", err)
+		log.Println("log: removeTreatmentHandler() strconv.Atoi error!\n", err)
 		errorHandler(w, r, http.StatusNotFound)
 		return
 	}

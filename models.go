@@ -1,5 +1,7 @@
 package GoLanta
 
+import "html/template"
+
 // BaseData stores all basic data used in the base.gohtml template.
 type BaseData struct {
 	Title      string
@@ -20,4 +22,22 @@ type Character struct {
 	Intelligence int    `json:"intelligence"`
 	Knowledge    int    `json:"knowledge"`
 	Fame         int    `json:"fame"`
+}
+
+// StatsHTML stores all Character stat converted into template.HTML type.
+type StatsHTML struct {
+	Strength     StatTemplate
+	Agility      StatTemplate
+	Stamina      StatTemplate
+	Vitality     StatTemplate
+	Initiative   StatTemplate
+	Intelligence StatTemplate
+	Knowledge    StatTemplate
+	Fame         StatTemplate
+}
+
+// StatTemplate stores any Character 's stat for the template's use.
+type StatTemplate struct {
+	Line    template.HTML
+	StatBar template.HTML
 }

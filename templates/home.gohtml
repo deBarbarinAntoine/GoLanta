@@ -11,16 +11,107 @@
         <div class="home-chars">
             {{$path := .Base.StaticPath}}
             {{range .Chars}}
-                <div class="character-card-compendium-list">
-                    <a href="/character?char={{.Id}}">
-                        <div class="character-card-avatar" style="background-image: url('{{$path}}{{.Avatar}}')"></div>
-                        <div class="card-separator"></div>
-                        <div class="name-character">{{.Name}}</div>
-                        <div class="nationality-character">{{.Nationality}}</div>
-                    </a>
-                    <div class="character-card-btn">
-                        <a href="/update?char={{.Id}}"><span class="material-symbols-outlined">edit</span></a>
-                        <a href="/remove?char={{.Id}}"><span class="material-symbols-outlined">delete</span></a>
+                <div class="card">
+                    <div class="filter-background" style="background-image: url('{{$path}}img/card-background.jpg')"></div>
+                    <div class="name-box">
+                        <div class="card-name">{{.Char.Name}}</div>
+                        <div class="char-info"><a href="/character?char={{.Char.Id}}"><span class="material-symbols-outlined">account_circle</span></a></div>
+                    </div>
+                    <div class="ctn-box" style="background-image: url('{{$path}}img/red-background.jpg')">
+                        <div class="border-ctn"></div>
+                        <div class="img-box">
+                            <div class="img-icons">
+                                <div class="icons-top">
+                                    <div class="icon-logo" style="background-image: url('{{$path}}img/logo-koh-lanta-1.png')"></div>
+                                    <div><span>{{.TotalStat}}</span></div>
+                                </div>
+                                <div class="icons-bottom">
+                                    <a href="/update?char={{.Char.Id}}"><span class="material-symbols-outlined">edit</span></a>
+                                    <a href="/remove?char={{.Char.Id}}"><span class="material-symbols-outlined">delete</span></a>
+                                </div>
+                            </div>
+                            <div class="avatar-background" style="background-image: url('{{$path}}img/avatar-background.webp')">
+                                <div class="avatar-img" style="background-image: url('{{$path}}{{.Char.Avatar}}')"></div>
+                            </div>
+                        </div>
+                        <div class="stats-box">
+                            <div class="stats-left">
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Str.</div>
+                                        <div class="stat-line"{{.Stat.Strength.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Strength.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Agi.</div>
+                                        <div class="stat-line"{{.Stat.Agility.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Agility.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Sta.</div>
+                                        <div class="stat-line"{{.Stat.Stamina.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Stamina.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Vit.</div>
+                                        <div class="stat-line"{{.Stat.Vitality.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Vitality.StatBar}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-right">
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Init.</div>
+                                        <div class="stat-line"{{.Stat.Initiative.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Initiative.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Int.</div>
+                                        <div class="stat-line"{{.Stat.Intelligence.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Intelligence.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Kno.</div>
+                                        <div class="stat-line"{{.Stat.Knowledge.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Knowledge.StatBar}}
+                                    </div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-name">
+                                        <div class="stat-label">Fa.</div>
+                                        <div class="stat-line"{{.Stat.Fame.Line}}></div>
+                                    </div>
+                                    <div class="stat-value">
+                                        {{.Stat.Fame.StatBar}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             {{end}}
