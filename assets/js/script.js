@@ -11,3 +11,18 @@ for (let i = 0; i < radioAvatar.length; i++) {
         avatar[i].classList.add("selected")
     })
 }
+
+var max = 50;
+var inputs = document.querySelectorAll('input[type="range"]');
+inputs.forEach(function(input) {
+    input.addEventListener('input', function() {
+        var sum = 0;
+        inputs.forEach(function(input) {
+            sum += parseInt(input.value);
+        });
+        if (sum > max) {
+            input.value = parseInt(input.value) - (sum - max);
+        }
+        input.max = max - (sum - parseInt(input.value));
+    });
+});

@@ -118,6 +118,12 @@
     padding: 0.9rem;
 }
 
+.message {
+    font-size: 1rem;
+    color: #CF0A0A;
+    text-align: justify;
+}
+
 .form-btn {
     display: flex;
     align-items: center;
@@ -222,7 +228,8 @@
 .sliders-bar div input[type="range"] {
     -webkit-appearance: none !important;
     width: 20vw;
-    height: 2px;
+    height: 6px;
+    border-radius: 3px;
     background: #e8d9a0;
     border: none;
     outline: none;

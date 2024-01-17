@@ -217,13 +217,37 @@ func createTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	strength, _ := strconv.Atoi(r.FormValue("strength"))
+	if strength > 10 {
+		strength = 10
+	}
 	agility, _ := strconv.Atoi(r.FormValue("agility"))
+	if agility > 10 {
+		agility = 10
+	}
 	stamina, _ := strconv.Atoi(r.FormValue("stamina"))
+	if stamina > 10 {
+		stamina = 10
+	}
 	vitality, _ := strconv.Atoi(r.FormValue("vitality"))
+	if vitality > 10 {
+		vitality = 10
+	}
 	initiative, _ := strconv.Atoi(r.FormValue("initiative"))
+	if initiative > 10 {
+		initiative = 10
+	}
 	intelligence, _ := strconv.Atoi(r.FormValue("intelligence"))
+	if intelligence > 10 {
+		intelligence = 10
+	}
 	knowledge, _ := strconv.Atoi(r.FormValue("knowledge"))
+	if knowledge > 10 {
+		knowledge = 10
+	}
 	fame, _ := strconv.Atoi(r.FormValue("fame"))
+	if fame > 10 {
+		fame = 10
+	}
 	var newChar = Character{
 		Id:           getIdNewChar(),
 		Name:         r.FormValue("name"),
@@ -304,13 +328,37 @@ func updateTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	strength, _ := strconv.Atoi(r.FormValue("strength"))
+	if strength > 10 {
+		strength = 10
+	}
 	agility, _ := strconv.Atoi(r.FormValue("agility"))
+	if agility > 10 {
+		agility = 10
+	}
 	stamina, _ := strconv.Atoi(r.FormValue("stamina"))
+	if stamina > 10 {
+		stamina = 10
+	}
 	vitality, _ := strconv.Atoi(r.FormValue("vitality"))
+	if vitality > 10 {
+		vitality = 10
+	}
 	initiative, _ := strconv.Atoi(r.FormValue("initiative"))
+	if initiative > 10 {
+		initiative = 10
+	}
 	intelligence, _ := strconv.Atoi(r.FormValue("intelligence"))
+	if intelligence > 10 {
+		intelligence = 10
+	}
 	knowledge, _ := strconv.Atoi(r.FormValue("knowledge"))
+	if knowledge > 10 {
+		knowledge = 10
+	}
 	fame, _ := strconv.Atoi(r.FormValue("fame"))
+	if fame > 10 {
+		fame = 10
+	}
 	var updatedChar = Character{
 		Id:           id,
 		Name:         r.FormValue("name"),
