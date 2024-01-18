@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This GoLanta project is an assignment done in our first semester studying development. It is a CRUD website managing characters in a golang server using ```net/http``` package.
+This GoLanta project (name and theme from a famous TV show) is an assignment done at the end of my first semester studying development. It is a CRUD website managing characters in a golang server using ```net/http``` package.
 
 ---
 
