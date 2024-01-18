@@ -119,14 +119,26 @@ func characterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data := struct {
-		Base BaseData
-		Char Character
+		Base     BaseData
+		CharData struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}
 	}{
 		Base: BaseData{
-			Title:      char.Name + " - GoLanta",
+			Title:      "Character - GoLanta",
 			StaticPath: "static/",
 		},
-		Char: char,
+		CharData: struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}{
+			Char:      char,
+			Stat:      statToHTML([]Character{char})[0],
+			TotalStat: getTotalStat([]Character{char})[0],
+		},
 	}
 	//fmt.Printf("log: data: %#v\n", data) // testing
 	err = tmpl["character"].ExecuteTemplate(w, "base", data)
@@ -157,18 +169,39 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 		message = "<div class=\"message\">There is no character matching your research!</div>"
 	}
 	data := struct {
-		Base    BaseData
-		Chars   []Character
+		Base  BaseData
+		Chars []struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}
 		Search  string
 		Message template.HTML
 	}{
 		Base: BaseData{
-			Title:      "Research - GoLanta",
+			Title:      "Search - GoLanta",
 			StaticPath: "static/",
 		},
-		Chars:   chars,
 		Search:  search,
 		Message: message,
+	}
+
+	data.Chars = make([]struct {
+		Char      Character
+		Stat      StatsHTML
+		TotalStat int
+	}, len(chars))
+
+	for i, char := range chars {
+		data.Chars[i] = struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}{
+			Char:      char,
+			Stat:      statToHTML(chars)[i],
+			TotalStat: getTotalStat(chars)[i],
+		}
 	}
 	//fmt.Printf("log: data: %#v\n", data) // testing
 	err := tmpl["search"].ExecuteTemplate(w, "base", data)
@@ -252,7 +285,6 @@ func createTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 		Id:           getIdNewChar(),
 		Name:         r.FormValue("name"),
 		Avatar:       r.FormValue("avatar"),
-		Nationality:  r.FormValue("nationality"),
 		Strength:     strength,
 		Agility:      agility,
 		Stamina:      stamina,
@@ -363,7 +395,6 @@ func updateTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 		Id:           id,
 		Name:         r.FormValue("name"),
 		Avatar:       r.FormValue("avatar"),
-		Nationality:  r.FormValue("nationality"),
 		Strength:     strength,
 		Agility:      agility,
 		Stamina:      stamina,
@@ -403,14 +434,26 @@ func removeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data := struct {
-		Base BaseData
-		Char Character
+		Base     BaseData
+		CharData struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}
 	}{
 		Base: BaseData{
-			Title:      "Remove Character - GoLanta",
+			Title:      "Remove character - GoLanta",
 			StaticPath: "static/",
 		},
-		Char: char,
+		CharData: struct {
+			Char      Character
+			Stat      StatsHTML
+			TotalStat int
+		}{
+			Char:      char,
+			Stat:      statToHTML([]Character{char})[0],
+			TotalStat: getTotalStat([]Character{char})[0],
+		},
 	}
 	err = tmpl["remove"].ExecuteTemplate(w, "base", data)
 	if err != nil {

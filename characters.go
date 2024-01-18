@@ -165,73 +165,73 @@ func statToHTML(chars []Character) []StatsHTML {
 
 		// Strength
 		if char.Strength > 5 {
-			statHTML.Strength.Line = " style=\"background-color: limegreen\""
+			statHTML.Strength.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Strength.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Strength-5))
 		} else {
-			statHTML.Strength.Line = " style=\"background-color: orange\""
+			statHTML.Strength.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Strength.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Strength))
 		}
 
 		// Agility
 		if char.Agility > 5 {
-			statHTML.Agility.Line = " style=\"background-color: limegreen\""
+			statHTML.Agility.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Agility.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Agility-5))
 		} else {
-			statHTML.Agility.Line = " style=\"background-color: orange\""
+			statHTML.Agility.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Agility.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Agility))
 		}
 
 		// Stamina
 		if char.Stamina > 5 {
-			statHTML.Stamina.Line = " style=\"background-color: limegreen\""
+			statHTML.Stamina.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Stamina.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Stamina-5))
 		} else {
-			statHTML.Stamina.Line = " style=\"background-color: orange\""
+			statHTML.Stamina.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Stamina.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Stamina))
 		}
 
 		// Vitality
 		if char.Vitality > 5 {
-			statHTML.Vitality.Line = " style=\"background-color: limegreen\""
+			statHTML.Vitality.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Vitality.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Vitality-5))
 		} else {
-			statHTML.Vitality.Line = " style=\"background-color: orange\""
+			statHTML.Vitality.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Vitality.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Vitality))
 		}
 
 		// Initiative
 		if char.Initiative > 5 {
-			statHTML.Initiative.Line = " style=\"background-color: limegreen\""
+			statHTML.Initiative.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Initiative.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Initiative-5))
 		} else {
-			statHTML.Initiative.Line = " style=\"background-color: orange\""
+			statHTML.Initiative.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Initiative.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Initiative))
 		}
 
 		// Intelligence
 		if char.Intelligence > 5 {
-			statHTML.Intelligence.Line = " style=\"background-color: limegreen\""
+			statHTML.Intelligence.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Intelligence.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Intelligence-5))
 		} else {
-			statHTML.Intelligence.Line = " style=\"background-color: orange\""
+			statHTML.Intelligence.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Intelligence.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Intelligence))
 		}
 
 		// Knowledge
 		if char.Knowledge > 5 {
-			statHTML.Knowledge.Line = " style=\"background-color: limegreen\""
+			statHTML.Knowledge.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Knowledge.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Knowledge-5))
 		} else {
-			statHTML.Knowledge.Line = " style=\"background-color: orange\""
+			statHTML.Knowledge.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Knowledge.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Knowledge))
 		}
 
 		// Fame
 		if char.Fame > 5 {
-			statHTML.Fame.Line = " style=\"background-color: limegreen\""
+			statHTML.Fame.Line = "<div class=\"stat-line\" style=\"background-color: limegreen\"></div>"
 			statHTML.Fame.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: limegreen\"></div>", char.Fame-5))
 		} else {
-			statHTML.Fame.Line = " style=\"background-color: orange\""
+			statHTML.Fame.Line = "<div class=\"stat-line\" style=\"background-color: orange\"></div>"
 			statHTML.Fame.StatBar = template.HTML(strings.Repeat("<div class=\"stat-bar\" style=\"background-color: orange\"></div>", char.Fame))
 		}
 

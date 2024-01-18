@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 * {
     padding: 0;
@@ -29,7 +30,8 @@ h1 {
 
 body {
     background-color: #000;
-    font-family: "Poppins", sans-serif;
+    font-family: "Koho", sans-serif;
+    font-weight: 500;
     height: fit-content;
     min-height: 100vh;
 }
@@ -38,8 +40,8 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
-    height: fit-content;
+    height: 100%;
+    min-height: calc(100vh - 25rem);
     width: 100%;
     margin-top: 6rem;
 }
@@ -49,7 +51,7 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: top 25% center;
     background-repeat: no-repeat;
     filter: grayscale(35%) brightness(75%) contrast(120%);
     box-shadow: inset #000000 0 0 2rem 2rem;
@@ -173,7 +175,7 @@ body {
     justify-content: flex-end;
 }
 
-.header #bar {
+#bar {
     z-index: inherit;
     position: absolute;
     width: inherit;
@@ -230,7 +232,6 @@ body {
 
 @keyframes borderAnimation {
     0% {
-        height: 1px;
         background-color: #CF0A0A;
         margin-left: 0;
         width: 0;
@@ -240,11 +241,9 @@ body {
         width: 30%;
     }
     50% {
-        height: 3px;
-        background-color: #DC5F00;
+        background-color: #DC5F00C7;
     }
     100% {
-        height: 1px;
         background-color: #CF0A0A;
         margin-left: 100%;
         width: 30%;
@@ -258,7 +257,7 @@ body {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 3px;
     background-color: #DC5F00;
     animation: borderAnimation 3s cubic-bezier(.29, 1.01, 1, -0.68) infinite;
 }
@@ -275,7 +274,6 @@ footer {
 
 .footer-content {
     z-index: inherit;
-    z-index: 10;
     font-weight: 600;
     padding: 0 5vw;
     border-top: solid 2px #CF0A0A;
