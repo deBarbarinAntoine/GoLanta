@@ -92,11 +92,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//	articleHandler
+//	characterHandler
 //
-// fetch and show a specific Article which id number is indicated in the query params.
+// fetch and show a specific Character which id number is indicated in the query params.
 //
-// Query params: ?article=<article-id>
+// Query params: ?char=<character-id>
 func characterHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/character" {
@@ -210,11 +210,9 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//	searchHandler
+//	createHandler
 //
-// fetch and show all Article which title matches the search indicated in the query params.
-//
-// Query params: ?q=<search>
+// takes the new Character info to send it to createTreatmentHandler via Post Method.
 func createHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/create" {
@@ -241,8 +239,6 @@ func createHandler(w http.ResponseWriter, r *http.Request) {
 //	createTreatmentHandler
 //
 // checks the form values sent by createHandler and calls createChar() to create the new Character.
-//
-// In case of invalid values, it redirects to createUserHandler with ?pass=error or ?user=error query params.
 func createTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/create/treatment" {
@@ -298,11 +294,9 @@ func createTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/home", http.StatusSeeOther)
 }
 
-//	loginHandler
+//	updateHandler
 //
-// takes the User info to send it to loginTreatmentHandler via Post Method.
-//
-// Optional query params: ?status=<error>	(error: "error" or "restricted")
+// takes the User new info to send it to updateTreatmentHandler via Post Method.
 func updateHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/update" {
@@ -343,10 +337,9 @@ func updateHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//	loginTreatmentHandler
+//	updateTreatmentHandler
 //
-// checks the form values sent by loginHandler to open the session and redirect to adminHandler
-// or redirect to loginHandler with query params: ?status=error
+// checks the form values sent by updateHandler and calls updateChar() to update the Character.
 func updateTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/update/treatment" {
@@ -408,10 +401,12 @@ func updateTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/home", http.StatusSeeOther)
 }
 
-//	logoutHandler
+//	removeHandler
 //
-// close and clear the Session opened.
-// It also clears the cache so that the Session can be closed.
+// asks confirmation whether the user whishes to remove the Character
+// which Character.Id is passed in parameter.
+//
+// Query params: ?char=<character-id>
 func removeHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/remove" {
@@ -461,11 +456,12 @@ func removeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//	modifyUserTreatmentHandler
+//	removeTreatmentHandler
 //
-// checks the User new info and runs User.modifyUser with the new info.
+// selects the Character which Character.Id is passed in parameter and
+// runs removeChar() to remove it.
 //
-// If new info is invalid, it redirects to modifyUserHandler with ?status=error query params.
+// Query params: ?char=<character-id>
 func removeTreatmentHandler(w http.ResponseWriter, r *http.Request) {
 	log.Printf("log: UrlPath: %#v\n", r.URL.Path) // testing
 	if r.URL.Path != "/remove/treatment" {
